@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
+    <link href="{% static 'css/recoverAccount.css' %}" rel="stylesheet">
+    <script src="{% static 'scripts/showPassword.js' %}" defer></script>
+    <script src="{% static 'scripts/openModal.js' %}" defer></script>
+    <title>Login | Mamutes do Cerrado</title>
+</head>
+<body>
+    <section class="container">
+        <section class="container-central-login">
+                <a href="{% url 'index' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="24" viewBox="0 0 26 24" fill="none">
+                        <path d="M0.93934 10.9393C0.353553 11.5251 0.353553 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97918 12.6066 1.3934C12.0208 0.807612 11.0711 0.807612 10.4853 1.3934L0.93934 10.9393ZM26 10.5L2 10.5V13.5L26 13.5V10.5Z" fill="#808080"/>
+                    </svg>
+                </a>
+                <div class="central-login-inputs">
+                    <div class="apresentation-texts">
+                        <div class="greeting-login">
+                            <h2 class="greeting-login-h2">Olá, membro!</h2>
+                            <h1 class="greeting-login-h1">Pronto para <b class="greeting-login-h1-colorizer">decolar</b>?</h1>
+                        </div>
+                        <h3 class="apresentation-text-h3">Faça seu login e continue</h3>
+                    </div>
+                        <form  class="form-login" action="{% url 'login' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-login-inputs">
+                                <div class="container-inputs">
+                                        <div class="inputs-box">
+                                                <p>Nome de usuário</p>
+                                                <div class="input-campo">
+                                                    <input type="text" name="username" placeholder="Digite aqui">
+                                                    <svg class="icon-input" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.25C10.7402 1.25 9.53204 1.75044 8.64124 2.64124C7.75044 3.53204 7.24999 4.74022 7.24999 6C7.24999 7.25978 7.75044 8.46796 8.64124 9.35876C9.53204 10.2496 10.7402 10.75 12 10.75C13.2598 10.75 14.468 10.2496 15.3588 9.35876C16.2495 8.46796 16.75 7.25978 16.75 6C16.75 4.74022 16.2495 3.53204 15.3588 2.64124C14.468 1.75044 13.2598 1.25 12 1.25ZM8.74999 6C8.74999 5.13805 9.0924 4.3114 9.7019 3.7019C10.3114 3.09241 11.138 2.75 12 2.75C12.8619 2.75 13.6886 3.09241 14.2981 3.7019C14.9076 4.3114 15.25 5.13805 15.25 6C15.25 6.86195 14.9076 7.6886 14.2981 8.2981C13.6886 8.90759 12.8619 9.25 12 9.25C11.138 9.25 10.3114 8.90759 9.7019 8.2981C9.0924 7.6886 8.74999 6.86195 8.74999 6ZM12 12.25C9.687 12.25 7.55499 12.776 5.97599 13.664C4.41999 14.54 3.24999 15.866 3.24999 17.5V17.602C3.24899 18.764 3.24799 20.222 4.52699 21.264C5.15599 21.776 6.03699 22.141 7.22699 22.381C8.41899 22.623 9.974 22.75 12 22.75C14.026 22.75 15.58 22.623 16.774 22.381C17.964 22.141 18.844 21.776 19.474 21.264C20.753 20.222 20.751 18.764 20.75 17.602V17.5C20.75 15.866 19.58 14.54 18.025 13.664C16.445 12.776 14.314 12.25 12 12.25ZM4.74999 17.5C4.74999 16.649 5.37199 15.725 6.71099 14.972C8.02699 14.232 9.895 13.75 12.001 13.75C14.105 13.75 15.973 14.232 17.289 14.972C18.629 15.725 19.25 16.649 19.25 17.5C19.25 18.808 19.21 19.544 18.526 20.1C18.156 20.402 17.536 20.697 16.476 20.911C15.419 21.125 13.974 21.25 12 21.25C10.026 21.25 8.58 21.125 7.52399 20.911C6.46399 20.697 5.84399 20.402 5.47399 20.101C4.78999 19.544 4.74999 18.808 4.74999 17.5Z" fill="#717171"/>
+                                                      </svg>
+                                                </div>
+                                        </div>
+                                        <div class="inputs-box">
+                                            <p>Senha</p>
+                                            <div class="input-campo">
+                                                <input type="password" name="password" placeholder="Digite aqui">
+                                                  <svg id="pwdEyeOpen" class="icon-input password-icon" style="cursor: pointer; display: flex;" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                                    <path d="M21.1686 11.3514C21.4058 11.6471 21.5372 12.0314 21.5372 12.4286C21.5372 12.8271 21.4058 13.21 21.1686 13.5057C19.6686 15.3214 16.2544 18.8571 12.2686 18.8571C8.28292 18.8571 4.86864 15.3214 3.36864 13.5057C3.12667 13.1991 2.99663 12.8191 3.00007 12.4286C3.00007 12.0314 3.13149 11.6471 3.36864 11.3514C4.86864 9.53571 8.28292 6 12.2686 6C16.2544 6 19.6686 9.53571 21.1686 11.3514Z" stroke="#717171" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M12.2689 15.2857C13.0266 15.2857 13.7534 14.9847 14.2892 14.4489C14.825 13.913 15.126 13.1863 15.126 12.4286C15.126 11.6708 14.825 10.9441 14.2892 10.4082C13.7534 9.87243 13.0266 9.57141 12.2689 9.57141C11.5111 9.57141 10.7844 9.87243 10.2486 10.4082C9.71276 10.9441 9.41174 11.6708 9.41174 12.4286C9.41174 13.1863 9.71276 13.913 10.2486 14.4489C10.7844 14.9847 11.5111 15.2857 12.2689 15.2857Z" stroke="#717171" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                                  <svg id="pwdEyeClose" class="icon-input password-icon" style="cursor: pointer; display: none;" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                                    <path d="M7.47144 7.46286C8.88716 6.54286 10.53 5.85715 12.2857 5.85715C16.2714 5.85715 19.6857 9.39286 21.1857 11.2086C21.4229 11.5043 21.5543 11.8886 21.5543 12.2857C21.5543 12.6843 21.4229 13.0671 21.1857 13.3629C20.3586 14.3629 18.95 15.8871 17.1857 17.0529M14.4286 18.3857C13.74 18.5943 13.0229 18.7143 12.2857 18.7143C8.30001 18.7143 4.88573 15.1786 3.38573 13.3629C3.14375 13.0563 3.01372 12.6763 3.01716 12.2857C3.01716 11.8886 3.14858 11.5043 3.38573 11.2086C3.86144 10.6343 4.52858 9.88572 5.34573 9.13143" stroke="#717171" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M14.3057 14.3057C14.8262 13.7669 15.1142 13.0451 15.1076 12.296C15.1011 11.5469 14.8006 10.8303 14.2709 10.3005C13.7412 9.77078 13.0246 9.4703 12.2754 9.46379C11.5263 9.45728 10.8046 9.74526 10.2657 10.2657M21.5714 21.5714L3 3" stroke="#717171" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                            </div>
+
+                                    </div>
+                                </div>
+                                <p id="btnModal" class="forgot-my-password">Esqueci minha senha</p>
+                            </div>
+                            <button class="btn-login" type="submit">Fazer login</button>
+                        </form>
+                </div>
+        </section>
+        <section class="container-ilustration">
+           <div class="ilustration-box">
+                <div style="position: absolute; width: 100%; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center;">
+                    <img class="img-planner" src="{% static 'img/aviao.png' %}" alt="avião planando">
+                </div>
+                <svg class="img-shape" xmlns="http://www.w3.org/2000/svg" height=100% viewBox="0 0 675 675" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M675 276.818V0H0V675H675V670.331C663.087 670.402 648.794 670.633 632.579 670.896C453.621 673.793 40.5444 680.481 8.87699 517.109C-19.7016 369.672 142.467 366.732 241.568 364.935C260.656 364.589 277.405 364.286 290 363C40 263.964 186 127 320 171C358.708 183.71 393.713 201.841 428.297 219.754C501.891 257.873 573.582 295.005 675 276.818Z" fill="#F2F2F2"/>
+                </svg>
+                <div class="clouds">
+                    <img class="img-clouds" src="{% static 'img/cloudsRight.png' %}">
+                </div>
+            </div>
+        </section>
+    </section>
+{% include 'recoverAccount.html' %}
+</body>
+</html>
